@@ -9,8 +9,8 @@
 
     $login = mysqli_real_escape_string($connection, $_POST['loginField']);
     $pw = mysqli_real_escape_string($connection, $_POST['pwField']);
-    $name = mysqli_query($connection, "SELECT `user_name` FROM `users` WHERE `user_login` = '{$login}' AND `user_pw` = '{$pw}'");
-    $name_display = $name->fetch_row(0);
+    #$name = mysqli_query($connection, "SELECT `user_name` FROM `users` WHERE `user_login` = '{$login}' AND `user_pw` = '{$pw}'");
+    #$name_display = $name->fetch_row(0);
     
 
     $query = "SELECT userID, user_login FROM users WHERE user_login = '{$login}' AND user_pw = '{$pw}'";
