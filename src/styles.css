@@ -1,0 +1,146 @@
+/* <link rel="stylesheet" href="/src/styles.css"> */
+
+body{
+    background-image: linear-gradient(#655d64,white);
+    height: 100vh;    
+    width: 100vw;
+}
+h2{    
+    font-size: 21px;
+    text-align: center;
+    font-family: Verdana, Helvetica, sans-serif;            
+}
+div{
+    display: flex; 
+    flex-direction: column;   
+    text-align: center;
+    align-items: center;
+    height: 100vh;  
+
+}
+.buttons{
+    height: auto;    
+    text-align: center;
+    justify-content: center;
+    flex-direction: row;    
+}
+.mainPageButtonsContainer{
+    flex-direction: row;
+    max-height: 130px;
+    justify-content: center;    
+}
+.inputTable{
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 12px;
+    row-gap: 16px;
+    height: 200px;
+}
+button{
+    margin:20px 20px 0 20px;    
+    border: none;    
+    padding: 8px 12px;
+    background-color: #2196f3;
+    color: white;
+    font-size: 25px;
+    border-radius: 10px; 
+    width: 120px;                      
+}
+.inputTableBackButton{
+    background-color: #b84e4e;
+    margin: 0;    
+    margin-top: 16px;
+    place-self: end;            
+}
+.inputTableBackButton > a{    
+    color: white;
+}
+.inputTableSaveButton{
+    margin: 0;
+    margin-top: 16px;
+    place-self: center;
+    
+}
+.mainPageButton{
+    background-image: linear-gradient(#525252,white);
+    color: black;
+    border-style: outset;
+    border-color: #bdbdbd;
+    border-width: 3px;
+    width: 180px;    
+}
+button:hover{
+    cursor: pointer;
+    box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}        
+input{
+    height: 25px;
+    width: 200px;
+    padding: 2px 4px;
+    place-self: center;    
+}
+.changePw{
+    margin-bottom: 10px;
+}
+a{
+    text-decoration: none;
+}
+a.buttonLink{
+    color: white;
+}
+label{
+    font-family: Verdana, Helvetica, sans-serif;
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+    
+}
+.registerLink{
+    font-size: 12px;
+    color: black;
+    text-decoration: underline;
+}
+
+
+/* Styles for myItems.html */
+table{
+    border: 2px solid black;
+    border-collapse: collapse;
+    margin: auto;
+    margin-top: 60px;
+}
+th{
+    border: 2px solid black;
+    padding: 10px;
+    font-size: large;
+    font-family: Verdana, Helvetica, sans-serif;
+}
+td{
+    border: 2px solid black;
+    text-align: center;
+    font-family: Verdana, Helvetica, sans-serif;
+}
+div.buttonWrapper{
+    flex-direction: row;
+    height: fit-content;    
+    justify-content: center;
+}
+div.myItemsTableContainer{
+    height: fit-content;
+    overflow-y: auto;
+    
+}
+button.backButton{    
+    background-color: #b84e4e;
+}
+button.registerItemButton{
+    background-color: #4caf50;
+    width: fit-content;
+}
+.userPwError{
+    background-color: #b84e4e;
+    color: black;
+    font-size: 18px;    
+    width: fit-content;
+}
