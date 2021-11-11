@@ -10,7 +10,7 @@
 </head>
 <body> 
     <div>
-        <h1>Olá !</h1>
+        <h1 class="mainPageGreetings">Olá <?php echo $_SESSION['userName'] ?>!</h1>
         <div class="mainPageButtonsContainer">
             <a href="myItems.html">
                 <button class="mainPageButton">
