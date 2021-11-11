@@ -1,18 +1,26 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <?php 
-        $name = isset($_POST["nome"])?$_POST["nome"]:null;
-        $login = isset($_POST["loginField"])?$_POST["loginField"]:null;
-        $pw = isset($_POST["pwField"])?$_POST["pwField"]:null;
-        echo "$name $login $pw";
-        //Com $name, $login e $pw, conectar à database e inserir novo usuário com estes dados. Mostrar mensagem de 'registrado com sucesso' e voltar à pagina de login.
+<?php 
+    session_start();
+    include("connect.php");
 
-    ?>
-</body>
-</html>
+    $name = mysqli_real_escape_string($connection, trim($_POST['nameField']));
+    $login = mysqli_real_escape_string($connection, trim($_POST['loginField']));
+    $pw = mysqli_real_escape_string($connection, trim(md5($_POST['pwField'])));
+
+    $sql = "SELECT COUNT(*) AS TOTAL FROM users WHERE user_login = '$login'";
+    $result = mysqli_query($connection, $sql);
+    $row = mysqli_fetch_assoc($result);
+    
+    if ($row == 1){
+        $_SESSION['userExists'] = true;
+        header('Location: registerUser.php');
+        exit();
+    }
+    $sql = "INSERT INTO users (user_name, user_login, user_pw) VALUES ('$name', '$login', '$pw')";
+    if($connection->query($sql) === TRUE){
+        $_SESSION['registerSuccess'] = true;
+    }
+    $connection->close();
+
+    header('Location: registerUser.php');
+    exit();
+?>
