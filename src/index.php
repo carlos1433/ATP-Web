@@ -22,7 +22,7 @@
             <button type="submit">Login</button>            
         </form><br>
         
-        <a href="registerUser.html" class="registerLink" >Não tem uma conta? Registrar</a>
+        <a href="registerUser.php" class="registerLink" >Não tem uma conta? Registrar</a>
         <?php 
             if(isset($_SESSION['unauth'])):
         ?>
