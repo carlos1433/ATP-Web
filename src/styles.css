@@ -144,3 +144,19 @@ button.registerItemButton{
     font-size: 18px;    
     width: fit-content;
 }
+
+.mainPageGreetings{
+    font-family: Verdana, Helvetica, sans-serif;
+    color: black;
+
+}
+.newUserSuccessButton{
+    background-color: #4caf50;
+    width: fit-content;
+    font-size: 18px;
+}
+.newUserFailButton{
+    background-color: #b84e4e;
+    width: fit-content;
+    font-size: 18px;
+}
