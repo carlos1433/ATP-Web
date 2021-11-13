@@ -17,7 +17,7 @@
                     Meus Itens
                 </button>
             </a>
-            <a href="myAccount.html">
+            <a href="myAccount.php">
                 <button class="mainPageButton">
                     Minha Conta
                 </button>
