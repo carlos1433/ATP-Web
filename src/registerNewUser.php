@@ -10,7 +10,7 @@
     $result = mysqli_query($connection, $sql);
     $row = mysqli_fetch_assoc($result);
     
-    if ($row == 1){
+    if ($row['TOTAL'] == 1){
         $_SESSION['userExists'] = true;
         header('Location: registerUser.php');
         exit();
