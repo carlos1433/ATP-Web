@@ -15,9 +15,14 @@
 <body>
     <div>
         <h2>Usuário: <?php echo $_SESSION['loginField'] ?></h2>
+        <?php if(isset($_SESSION['updatedPw'])): ?>
         <button class="newUserSuccessButton">Senha alterada com sucesso!</button>
+        <?php 
+            endif;
+            unset($_SESSION['updatedPw']);
+        ?>
         <?php if(isset($_SESSION['pwIsDifferent'])): ?>
-        <button class="newUserFailButton">Nova senha não confere!</button>
+        <button class="newUserFailButton">Senha não confere!</button>
         <?php
         endif;
         unset($_SESSION['pwIsDifferent']);
