@@ -13,20 +13,20 @@
 <body>
   <div>
     <?php 
-      if(isset($_SESSION['registerSuccess'])):
-    ?>
-    <button class="newUserSuccessButton">Usuário cadastrado com sucesso!</button>
-    <?php 
-      endif;
-      unset($_SESSION['registerSuccess']);
-    ?>
-    <?php 
       if(isset($_SESSION['userExists'])):
     ?>
     <button class="newUserFailButton">Usuário já existe! Tente Novamente!</button>
     <?php 
       endif;
       unset($_SESSION['userExists']);
+    ?>
+    <?php 
+      if(isset($_SESSION['registerSuccess'])):
+    ?>
+    <button class="newUserSuccessButton">Usuário cadastrado com sucesso!</button>
+    <?php 
+      endif;
+      unset($_SESSION['registerSuccess']);
     ?>
     <form action="registerNewUser.php" method="post" class="">
         <h2>Nome e Sobrenome</h2>
