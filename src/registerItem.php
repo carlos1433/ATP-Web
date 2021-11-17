@@ -30,7 +30,7 @@
                 <label for="">Data Devolução:</label>
                 <input type="date" name="returnDate">
                 <button type="button" class="inputTableBackButton">
-                    <a href="myItems.html">
+                    <a href="myItems.php">
                     Voltar
                     </a>
                 </button>
