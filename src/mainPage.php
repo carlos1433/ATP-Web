@@ -12,7 +12,7 @@
     <div>
         <h1 class="mainPageGreetings">Olá <?php echo $_SESSION['userName'] ?>!</h1>
         <div class="mainPageButtonsContainer">
-            <a href="myItemsTest.php">
+            <a href="myItems.php">
                 <button class="mainPageButton">
                     Meus Itens
                 </button>
