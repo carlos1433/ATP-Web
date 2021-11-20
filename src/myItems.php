@@ -1,3 +1,21 @@
+<?php
+    session_start();
+    include('connect.php');
+    include('session_check.php');
+    $id = $_SESSION['userID'];
+    
+
+    $sql = "SELECT COUNT(*) AS ITEMS FROM items WHERE item_owner_ID = $id";
+    $result = mysqli_query($connection, $sql);
+    $items_total = mysqli_fetch_assoc($result)["ITEMS"];
+
+    $sql = "SELECT item_name, item_loan_date, item_loan_contact, item_return_date, item_returned FROM items WHERE item_owner_ID = $id ORDER BY item_loan_date";
+    $result = mysqli_query($connection, $sql);
+    $items_data = mysqli_fetch_all($result);
+    #var_dump($items_data);
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -18,27 +36,25 @@
                     <th>Data Devolução</th>
                     <th>Devolvido</th>
                 </tr>
+                <?php 
+                for ($i = 0; $i < $items_total; $i++){
+                ?>
                 <tr>
-                    <td>Livro</td>
-                    <td>17/10/2021</td>
-                    <td>fulano@gmail.com</td>
-                    <td>17/11/2021</td>
-                    <td><input type="checkbox" value=""></td>
-                </tr>
-                <tr>
-                    <td>Blusa</td>
-                    <td>18/10/2021</td>
-                    <td>jose@gmail.com</td>
-                    <td>25/10/2021</td>
-                    <td><input type="checkbox" value=""></td>
-                </tr>
-                <tr>
-                    <td>Mesa</td>
-                    <td>19/11/2021</td>
-                    <td>jose@gmail.com</td>
-                    <td><input type="date" name="" id=""></td>
-                    <td><input type="checkbox" value=""></td>
-                </tr>
+                <?php 
+                    for ($j = 0; $j < 5; $j++){
+                        if($items_data[$i][$j] === null){
+                ?>
+                        <td><input type="date"></td>
+                        <?php }else if($items_data[$i][$j] == 0){ ?>
+                            <td><input type="checkbox" value="1"></td>
+                        <?php }else if($items_data[$i][$j] == 1){ ?>
+                            <td>Item devolvido!</td>
+                        <?php }else{ ?>
+                        <td><?php echo $items_data[$i][$j] ?></td>
+                        <?php } ?>
+                <?php } ?>
+            <?php } ?>
+            </tr>
             </table>
         </div>
         <div class="buttonWrapper">
