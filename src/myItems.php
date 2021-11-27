@@ -8,11 +8,12 @@
     $sql = "SELECT COUNT(*) AS ITEMS FROM items WHERE item_owner_ID = $id";
     $result = mysqli_query($connection, $sql);
     $items_total = mysqli_fetch_assoc($result)["ITEMS"];
+    $_SESSION['items_total'] = $items_total;
 
     $sql = "SELECT item_name, item_loan_date, item_loan_contact, item_return_date, item_returned FROM items WHERE item_owner_ID = $id ORDER BY item_loan_date";
     $result = mysqli_query($connection, $sql);
     $items_data = mysqli_fetch_all($result);
-    #var_dump($items_data);
+    $_SESSION['items_data'] = $items_data; 
 
 ?>
 
@@ -42,19 +43,18 @@
                 <tr>
                 <?php 
                     for ($j = 0; $j < 5; $j++){
-                        if($items_data[$i][$j] === null){
-                ?>
-                        <td><input type="date"></td>
+                        if($items_data[$i][$j] === null){ ?>
+                            <td><input type="date"></td>
                         <?php }else if($items_data[$i][$j] == 0){ ?>
-                            <td><input type="checkbox" value="1"></td>
+                            <td><input type="checkbox" value="1" name="isReturned"></td>
                         <?php }else if($items_data[$i][$j] == 1){ ?>
                             <td>Item devolvido!</td>
                         <?php }else{ ?>
-                        <td><?php echo $items_data[$i][$j] ?></td>
+                            <td><?php echo $items_data[$i][$j] ?></td>
                         <?php } ?>
+                    <?php } ?>
                 <?php } ?>
-            <?php } ?>
-            </tr>
+                </tr>
             </table>
         </div>
         <div class="buttonWrapper">
