@@ -22,7 +22,7 @@
         <form action="registerNewItem.php" method="post">            
             <div class="inputTable">
                 <label >Nome Item: </label>
-                <input type="text" name="itemName" required>
+                <input type="text" name="itemName" required minlength="2">
                 <label>Data Empréstimo: </label>
                 <input type="date" name="loanDate" required>
                 <label>Email Destinatário:</label>
