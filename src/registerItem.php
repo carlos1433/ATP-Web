@@ -21,11 +21,11 @@
         ?>      
         <form action="registerNewItem.php" method="post">            
             <div class="inputTable">
-                <label >Nome Item: </label>
+                <label >Nome Item: *</label>
                 <input type="text" name="itemName" required minlength="2">
-                <label>Data Empréstimo: </label>
+                <label>Data Empréstimo: *</label>
                 <input type="date" name="loanDate" required>
-                <label>Email Destinatário:</label>
+                <label>Email Destinatário: *</label>
                 <input type="email" name="loanContact" required>
                 <label for="">Data Devolução:</label>
                 <input type="date" name="returnDate">
